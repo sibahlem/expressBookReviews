@@ -5,6 +5,12 @@ You will then test your application using Promises callbacks or Async-Await func
 Objectives:
 After completing this lab, you will be able to:
 
-Create APIs and perform CRUD operations on an Express server using Session & JWT authentication.
-Use Async/Await or Promises with Axios in Node.js.
-Create REST API endpoints and test them using Postman.
+-Create APIs and perform CRUD operations on an Express server using Session & JWT authentication.
+-Use Async/Await or Promises with Axios in Node.js.
+-Create REST API endpoints and test them using Postman.
+
+npm install --save
+npm install
+npm start
+*don't forget to not back up the node_module folder to GitHub
+
