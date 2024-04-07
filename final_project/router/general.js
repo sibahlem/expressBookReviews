@@ -8,22 +8,22 @@ const public_users = express.Router();
 
 // Code for registering a new user.
 public_users.post("/register", (req,res) => {
-  let users = []
-  const doesExist = (username)=>{ /* Utility function to check if the username exists in the list of registered users,
+  //let users = []
+  /*const doesExist = (username)=>{ /* Utility function to check if the username exists in the list of registered users,
   to avoid duplications and keep the username unique.*/
-    let userswithsamename = users.filter((user)=>{
+    /*let userswithsamename = users.filter((user)=>{
       return user.username === username
     }); 
     if(userswithsamename.length > 0){
       return true;
     } else {
       return false;
-    }
-  }
+    } 
+  }*/
   const username = req.body.username; // takes the ‘username’ and ‘password’ provided in the body of the request for registration.
   const password = req.body.password;
   if (username && password) {
-    if (!doesExist(username)) {
+    if (username) {
       users.push({"username":username,"password":password});
       return res.status(200).json({message: "User successfully registred. Now you can login"});
     } else { // If the username already exists, it must mention. 
