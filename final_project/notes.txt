@@ -14,3 +14,25 @@ npm install
 npm start
 *don't forget to not back up the node_module folder to GitHub
 
+put review code sample:
+regd_users.put("/auth/review/:isbn", async (req, res) => { // "customer/auth/review/1" for PUT request
+  const username = req.session.authorization.username	
+
+  const isbn = req.params.isbn;
+  let filtered_book = books[isbn]
+  if (filtered_book) {
+      let review = req.query.review;
+      let reviewer = req.session.authorization['username'];
+      if(review) {
+          filtered_book['reviews'][reviewer] = review;
+          books[isbn] = await filtered_book;
+      }
+      res.send(`The review for the book with ISBN  ${isbn} has been added/updated.`);
+  }  else{
+      res.send("Unable to find this ISBN!");
+  }
+});
+
+
+The code we use fetches the review from the HTTP request query (not the body).
+If you are using that, please select the "Params" option on Postman, and enter the key as "review" and the value as your actual review.
