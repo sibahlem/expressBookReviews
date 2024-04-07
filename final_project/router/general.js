@@ -33,10 +33,14 @@ public_users.post("/register", (req,res) => {
   return res.status(404).json({message: "Unable to register user."}); // Errors when username &/ password are not provided.
 });
 
-// Get the book list available in the shop
+//Get the book list available in the shop
 public_users.get('/',function (req, res) {
   res.send(JSON.stringify(books,null,4));
 });
+
+/*public_users.get('/',new Promise((resolve,reject) => {
+  resolve(JSON.stringify(books,null,4))
+}));*/
 
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn',function (req, res) {
